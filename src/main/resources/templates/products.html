@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<link rel="stylesheet" href="main.css" type="text/css" />
+
+<head>
+    <title>Login</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <section>
+        <div class="jumbotron">
+            <div class="container">
+                <h1 th:text="${message}"></h1>
+                <p th:text="${info}"></p>
+                <p th:text="${info2}"></p>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>All avaiable products</h3>
+                        <p>Display all products</p>
+                        <p>
+                            <a th:href="@{/books}" class="btn btn-default"> <span
+                                class="glyphicon-info-sign glyphicon" /></span> show all products
+                        </a>
+                            <a th:href="@{/}" class="btn btn-default"> <span
+                                    class="glyphicon-info-sign glyphicon" /></span> Return to main page!
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
+</div>
+</body>
+</html>

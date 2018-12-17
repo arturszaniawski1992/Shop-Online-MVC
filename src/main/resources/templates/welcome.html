@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<link rel="stylesheet" href="main.css" type="text/css" />
+
+<head>
+    <title>Login</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <section>
+        <div class="jumbotron">
+            <div class="container">
+                <h1 th:text="${message}"></h1>
+                <p th:text="${info}"></p>
+                <p th:text="${info2}"></p>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Books</h3>
+                        <p>Display all books</p>
+                        <p>
+                            <a th:href="@{/products}" class="btn btn-default"> <span
+                                    class="glyphicon-info-sign glyphicon" /></span> Show all books
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <div class="caption">
+                            <h3>Add book</h3>
+                            <p>Create new book</p>
+                            <p>
+                                <a th:href="@{/books/add}" class="btn btn-default"> <span
+                                        class="glyphicon-info-sign glyphicon" /></span> Add book
+                                </a>
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <div class="caption">
+                            <h3>Find book</h3>
+                            <p>Find book</p>
+                            <p>
+                                <a th:href="@{/books/find}" class="btn btn-default"> <span
+                                        class="glyphicon-info-sign glyphicon" /></span> Find book
+                                </a>
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+    </section>
+</div>
+</body>
+</html>
