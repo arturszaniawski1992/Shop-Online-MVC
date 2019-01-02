@@ -2,7 +2,7 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{fragments/layout}">
-<link rel="stylesheet" href="main.css" type="text/css" />
+<link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
 
 <head>
     <title>Login</title>
@@ -13,8 +13,6 @@
         <div class="jumbotron">
             <div class="container">
                 <h1 th:text="${message}"></h1>
-                <p th:text="${info}"></p>
-                <p th:text="${info2}"></p>
             </div>
         </div>
     </section>
@@ -23,11 +21,24 @@
             <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
                 <div class="thumbnail">
                     <div class="caption">
-                        <h3>Books</h3>
-                        <p>Display all books</p>
+                        <h3>Products</h3>
+                        <p>Display all products</p>
                         <p>
                             <a th:href="@{/products}" class="btn btn-default"> <span
-                                    class="glyphicon-info-sign glyphicon" /></span> Show all books
+                                    class="glyphicon-info-sign glyphicon"/></span> All products
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Customers</h3>
+                        <p>Display all customers</p>
+                        <p>
+                            <a th:href="@{/customers}" class="btn btn-default"> <span
+                                    class="glyphicon-info-sign glyphicon"/></span> All customers
                             </a>
                         </p>
                     </div>
@@ -41,14 +52,22 @@
                 <div class="thumbnail">
                     <div class="caption">
                         <div class="caption">
-                            <h3>Add book</h3>
-                            <p>Create new book</p>
+                        <h3>Add product</h3>
+                        <p>Create new product</p>
+                        <p>
+                            <a th:href="@{/product/add}" class="btn btn-default"> <span
+                                    class="glyphicon-info-sign glyphicon"/></span> Add product
+                            </a>
+                        </p>
+                    </div>
+                        <div class="caption">
+                            <h3>Edit product</h3>
+                            <p>Edit  product</p>
                             <p>
-                                <a th:href="@{/books/add}" class="btn btn-default"> <span
-                                        class="glyphicon-info-sign glyphicon" /></span> Add book
+                                <a th:href="@{/product/add}" class="btn btn-default"> <span
+                                        class="glyphicon-info-sign glyphicon"/></span> Edit product
                                 </a>
                             </p>
-
                         </div>
 
                     </div>
@@ -58,11 +77,11 @@
                 <div class="thumbnail">
                     <div class="caption">
                         <div class="caption">
-                            <h3>Find book</h3>
-                            <p>Find book</p>
+                            <h3>Find product</h3>
+                            <p>Find product</p>
                             <p>
-                                <a th:href="@{/books/find}" class="btn btn-default"> <span
-                                        class="glyphicon-info-sign glyphicon" /></span> Find book
+                                <a th:href="@{/product/find}" class="btn btn-default"> <span
+                                        class="glyphicon-info-sign glyphicon"/></span> Find product
                                 </a>
                             </p>
 

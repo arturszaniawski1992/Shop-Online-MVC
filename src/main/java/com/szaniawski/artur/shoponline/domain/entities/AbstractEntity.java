@@ -1,5 +1,6 @@
 package com.szaniawski.artur.shoponline.domain.entities;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -12,7 +13,10 @@ import javax.persistence.TemporalType;
 
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class AbstractEntity {
+public class AbstractEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Column(nullable = true)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdTime;

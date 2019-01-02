@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<link rel="stylesheet" href="main.css" type="text/css"/>
+
+<head>
+    <title>All customers</title>
+</head>
+<body>
+<h1>All customers:</h1>
+<div class="row">
+    <th:block th:each="customer : ${customers}">
+        <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3 th:text="${customer.id}"></h3>
+                    <p th:text="${customer.firstName}">Name:</p>
+                    <p th:text="${customer.lastName}">Surname:</p>
+                    <p th:text="${customer.mobile}">Mobile:</p>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</div>
+</body>
+</html>

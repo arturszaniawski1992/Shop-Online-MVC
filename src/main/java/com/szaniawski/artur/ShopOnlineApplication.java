@@ -1,4 +1,4 @@
-package com.szaniawski.artur.shoponline.web;
+package com.szaniawski.artur;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ShopOnlineApplication {
 
 	public static void main(String[] args) {
+
+		System.setProperty("spring.profiles.active", "mysql");
 		SpringApplication.run(ShopOnlineApplication.class, args);
 	}
 

@@ -17,13 +17,9 @@ import java.util.List;
 @EntityListeners({UpdateListener.class, InsertListener.class})
 public class TransactionEntity extends AbstractEntity implements Serializable {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
     @Version
     public Long version;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -89,7 +85,6 @@ public class TransactionEntity extends AbstractEntity implements Serializable {
         this.dateTransaction = dateTransaction;
 
     }
-
     public void setTransactionStatus(TransactionStatus transactionStatus) {
         this.transactionStatus = transactionStatus;
     }
@@ -111,31 +106,18 @@ public class TransactionEntity extends AbstractEntity implements Serializable {
         this.orders = orders;
     }
 
-    /**
-     * This is the method which remove customer from transaction.
-     */
     public void removeCustomer() {
         customerEntity.removeTransaction(this);
         this.customerEntity = null;
     }
 
-    /**
-     * This is the method which add order to transaction.
-     *
-     * @param OrderEntity as order for transaction.
-     */
-    public boolean addOrder(OrderEntity orderEntity) {
+      public boolean addOrder(OrderEntity orderEntity) {
         if (orders == null) {
             orders = new ArrayList<>();
         }
         return orders.add(orderEntity);
     }
 
-    /**
-     * This is the method which remove order from transaction.
-     *
-     * @param OrderEntity as order for transaction.
-     */
     public boolean removeOrder(OrderEntity orderEntity) {
         if (orders == null) {
             return false;
@@ -152,9 +134,7 @@ public class TransactionEntity extends AbstractEntity implements Serializable {
         private CustomerEntity customerEntity;
         private List<OrderEntity> orders;
 
-        /**
-         * Default constructor for transaction entity builder.
-         */
+
         public TransactionEntityBuilder() {
         }
 

@@ -2,42 +2,50 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{fragments/layout}">
-<link rel="stylesheet" href="main.css" type="text/css" />
-
 <head>
-    <title>Login</title>
+    <title>Products</title>
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag">
-    <section>
-        <div class="jumbotron">
-            <div class="container">
-                <h1 th:text="${message}"></h1>
-                <p th:text="${info}"></p>
-                <p th:text="${info2}"></p>
-            </div>
-        </div>
+    <section th:if="${infoRemove}">
+        <h1 th:text="${infoRemove}"></h1>
+        <p>
+            <a th:href="@{/products}" class="btn btn-primary"> </a>
+        </p>
     </section>
     <section class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <h3>All avaiable products</h3>
-                        <p>Display all products</p>
-                        <p>
-                            <a th:href="@{/books}" class="btn btn-default"> <span
-                                class="glyphicon-info-sign glyphicon" /></span> show all products
-                        </a>
-                            <a th:href="@{/}" class="btn btn-default"> <span
-                                    class="glyphicon-info-sign glyphicon" /></span> Return to main page!
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <table TABLE BORDER CELLSPACING=5 CELLPADDING=15>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Price</td>
+                    <td>Margin</td>
+                    <td>Weight</td>
+                    <td></td>
+                </tr>
+                <th:block th:each="product : ${products}">
+                    <tr>
+                        <td th:text="${product.id}">...</td>
+                        <td th:text="${product.productName}">...</td>
+                        <td th:text="${product.price}">...</td>
+                        <td th:text="${product.margin}">...</td>
+                        <td th:text="${product.weight}">...</td>
+                        <td>
+                            <form th:action="@{/products/remove/${id}}" th:object="${product}" method="post">
+                                <input type="hidden" th:field="${buyer}">Delete</input>
+                                <button type="submit" onClick="return confirm('sure?')"/>
+                            </form>
+                        </td>
+                    </tr>
+                </th:block>
+            </table>
+            <button>
+                <a href="/" th:href="@{/}">BACK TO MAIN PAGE</a>
+            </button>
+
         </div>
-     </section>
+    </section>
 </div>
 </body>
 </html>
